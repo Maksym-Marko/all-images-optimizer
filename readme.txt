@@ -2,21 +2,31 @@
 Contributors: markomaksym
 Tags: image optimization, reduce image size, compress images, optimize images
 Requires at least: 5.0
-Tested up to: 5.7
-Stable tag: 1.0
+Tested up to: 6.3
+Stable tag: 1.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 	WP Plugin Sceleton Generator Version: 			3.0
 	WP Plugin Sceleton Generator Author: 			Maksym Marko
 	WP Plugin Sceleton Generator Author Website:	https://markomaksym.com.ua/
 
-Brief description
+The “Cut down uploads size” plugin allows you to optimize all the images from your “uploads” folder.
 
 == Description ==
 
-The “Cut down uploads size” plugin allows you to optimize all the images from your “uploads” folder. You can choose the quality of the optimization and run optimization.
+<p>
+	The “Cut down uploads size” plugin allows you to optimize all the images from your “uploads” folder. You can choose the quality of the optimization and run optimization.
+</p>
 
-The plugin's built using the cool PHP library https://github.com/gumlet/php-image-resize Thanks guys!
+<p>
+	The plugin's built using the cool PHP library https://github.com/gumlet/php-image-resize Thanks guys!
+</p>
+
+<p>
+	<b>How does it work?</b>
+</p>
+
+<iframe width="600" height="320" src="https://www.youtube.com/embed/K_uhoY4tUYk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 == Installation ==
 
@@ -39,6 +49,12 @@ The plugin's built using the cool PHP library https://github.com/gumlet/php-imag
 3. After optimization
 
 == Changelog ==
+
+= 1.2 =
+* Tested up to WP 6.3
+
+= 1.1 =
+* Memory limit bug fixed
 
 = 1.0 =
 * Cut down uploads size

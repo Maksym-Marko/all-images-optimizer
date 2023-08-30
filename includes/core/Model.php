@@ -36,7 +36,7 @@ class MXAIO_Model
 	/**
 	* select row from the database
 	*/
-	public function mxaio_get_row( $table = NULL, $wher_name, $wher_value )
+	public function mxaio_get_row( $table = NULL, $wher_name='', $wher_value='' )
 	{
 
 		$table_name = $this->wpdb->prefix . $this->table;

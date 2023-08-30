@@ -90,7 +90,7 @@ class MXAIO_Route_Registrar
 	* $settings_area 	- place item to settings area (core WP Settings menu item)
 	*
 	*/
-	public function mxaio_set_data( $controller, $action, $slug = MXAIO_MAIN_MENU_SLUG, array $menu_properties, $sub_menu_slug = false, $settings_area = false )
+	public function mxaio_set_data( $controller='', $action='', $slug = MXAIO_MAIN_MENU_SLUG, array $menu_properties=[], $sub_menu_slug = false, $settings_area = false )
 	{
 
 		// set controller

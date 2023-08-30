@@ -120,7 +120,11 @@ Vue.component( 'mx_run_optimization_form', {
 	data() {
 		return {
 			show_button: true,
-			mx_image_quality: 82
+			mx_image_quality: 82,
+			interval_soul: null,
+			set_interval: true,
+			img_index: 0,
+			optimized_images: []
 		}
 	},
 	methods: {
@@ -133,45 +137,72 @@ Vue.component( 'mx_run_optimization_form', {
 
 				this.show_button = false
 
-				let _this = this				
+				let _this = this
 
-				this.images_data.forEach( function( v, i ) {
+				this.interval_soul = setInterval( function() {
 
-					let data = {
+					let start_counting = Date.now()
 
-						'action': 'mxaio_image_resize',
-						'nonce': _this.nonce,
-						'image': v,
-						'quality': _this.mx_image_quality
+					if( _this.optimized_images.length !== _this.images_data.length ) {
+
+						if( _this.set_interval ) {
+
+							_this.set_interval = false
+
+							let data = {
+
+								'action': 'mxaio_image_resize',
+								'nonce': _this.nonce,
+								'image': _this.images_data[_this.img_index],
+								'quality': _this.mx_image_quality
+
+							}
+
+							jQuery.ajax( {
+
+								url: _this.ajaxurl,
+								type: 'POST',
+								data: data,
+								success: function( response ) {
+
+									if( _this.isJSON( response ) ) {
+
+										let img_data = JSON.parse( response )
+
+										_this.$emit( 'optimized_img', img_data )
+
+										_this.optimized_images.push( img_data )
+
+										_this.img_index = _this.optimized_images.length
+
+										_this.set_interval = true
+
+										// 
+										let _time = Date.now() - start_counting 
+
+										console.log( _time )
+
+									}
+									
+								},
+
+								error: function( response ) {
+
+									// console.log( 'error' + response );
+
+								}
+
+							} )
+
+						}										
+
+					} else {
+
+						clearInterval( _this.interval_soul )
 
 					}
 
-					jQuery.ajax( {
-
-						url: _this.ajaxurl,
-						type: 'POST',
-						data: data,
-						success: function( response ) {
-
-							if( _this.isJSON( response ) ) {
-
-								let img_data = JSON.parse( response )
-
-								_this.$emit( 'optimized_img', img_data )
-
-							}						
-							
-						},
-
-						error: function(response) {
-
-							// console.log('error');
-
-						}
-
-					} )
-
-				} )
+				}, 300 )				
 
 			}
 

@@ -3,8 +3,8 @@
 Plugin Name: Cut down uploads size
 Plugin URI: https://github.com/Maxim-us/
 Description: The “Cut down uploads size” plugin allows you to optimize all the images from your “uploads” folder. 
-Author: Marko Maksym
-Version: 1.0
+Author: Maksym Marko
+Version: 1.2
 Author URI: https://markomaksym.com.ua/
 */
 
@@ -74,7 +74,7 @@ if ( ! defined( 'MXAIO_PLUGIN_ABS_PATH' ) ) {
 if ( ! defined( 'MXAIO_PLUGIN_VERSION' ) ) {
 
 	// version
-	define( 'MXAIO_PLUGIN_VERSION', '1.0' ); // Must be replaced before production on for example '1.0'
+	define( 'MXAIO_PLUGIN_VERSION', '1.2' ); // Must be replaced before production on for example '1.0'
 
 }
 
